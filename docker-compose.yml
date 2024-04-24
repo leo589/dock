@@ -1,20 +1,9 @@
-
 version: '3'
 services:
   web:
-    image: nginx:latest
+    build: .
     ports:
       - "8000:80"
-    volumes:
-      - ./code:/code
-      - ./site.conf:/etc/nginx/conf.d/site.conf
-    depends_on:
-      - php
-      - db
-  php:
-    image: php:fpm
-    volumes:
-      - ./code:/code
   db:
     image: mysql:5.7
     volumes:
