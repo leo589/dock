@@ -26,6 +26,12 @@ Include ports.conf
     Options Indexes FollowSymLinks
     AllowOverride All
     Require all granted
+
+    # Redirecionamento para index.php
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ /index.php [L,QSA]
 </Directory>
  
 AccessFileName .htaccess
@@ -33,9 +39,6 @@ AccessFileName .htaccess
 <FilesMatch "^\.ht">
     Require all denied
 </FilesMatch>
-
-# Definindo o index.php como o arquivo de índice padrão
-DirectoryIndex index.php
  
 LogFormat "%v:%p %h %l %u %t \"%r\" %>s %O \"%{Referer}i\" \"%{User-Agent}i\"" vhost_combined
 LogFormat "%h %l %u %t \"%r\" %>s %O \"%{Referer}i\" \"%{User-Agent}i\"" combined
