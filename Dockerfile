@@ -16,8 +16,8 @@ RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 # Copia o código PHP para a pasta raiz do servidor web
 COPY www /var/www/html
 
-# Expõe a porta 80 para tráfego da web
-EXPOSE 80
+# Expõe a porta desejada para tráfego da web
+EXPOSE 80  # Ajuste esta porta conforme necessário
 
 # Inicia os serviços necessários
 CMD service nginx start && php-fpm
