@@ -1,41 +1,35 @@
-FROM php:7.2.1-fpm
-FROM debian:latest
+# Use a imagem oficial do PHP com Nginx
+FROM php:7.4-fpm
 
-RUN apt-get update && apt-get install -y nginx
+# Instale as dependências necessárias
+RUN apt-get update && \
+    apt-get install -y nginx && \
+    apt-get install -y \
+        libfreetype6-dev \
+        libjpeg62-turbo-dev \
+        libpng-dev \
+        libzip-dev \
+        zip \
+        unzip \
+        vim \
+        wget \
+        git \
+        curl && \
+    rm -rf /var/lib/apt/lists/* && \
+    docker-php-ext-configure gd --with-freetype --with-jpeg && \
+    docker-php-ext-install -j$(nproc) gd mysqli pdo pdo_mysql zip
 
-RUN usermod -u 1000 www-data
+# Copie o arquivo de configuração do Nginx
+COPY nginx.conf /etc/nginx/nginx.conf
 
-RUN echo 'deb http://httpredir.debian.org/debian jessie contrib' >> /etc/apt/sources.list
+# Copie os arquivos do seu aplicativo para o diretório de trabalho do Nginx
+COPY . /var/www/html
 
-RUN apt-get update
-RUN export DEBIAN_FRONTEND=noninteractive && apt-get install -y --force-yes libssl-dev curl  libcurl4-gnutls-dev libxml2-dev libicu-dev libmcrypt4 libmemcached11 openssl
+# Configure o Nginx para servir os arquivos do PHP
+RUN sed -i 's/\.php/\.php\$request_uri/' /etc/nginx/nginx.conf
 
-#CONFIGURAÇÕES DO OPCACHE
-RUN docker-php-ext-install opcache
-
-#CONFIGURAÇÕES DO APCU
-RUN pecl install apcu-5.1.5 && docker-php-ext-enable apcu
-
-#LIBS EXTRAS
-RUN docker-php-ext-install bcmath
-RUN apt-get install -y libbz2-dev
-RUN docker-php-ext-install bz2
-RUN docker-php-ext-install mbstring
-RUN apt-get install -y libpq-dev
-RUN apt-get install -y libicu-dev
-RUN docker-php-ext-install intl
-
-#GD
-RUN apt-get install -y libfreetype6-dev libjpeg62-turbo-dev libpng16-16
-RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
-RUN docker-php-ext-install gd
-
-#PDO - CUSTOMIZAR A SEU DISPOR
-RUN docker-php-ext-install pdo_mysql
-
-EXPOSE 9000
-CMD ["php-fpm"]
-CMD ["nginx"]
-
+# Exponha a porta 80 para o tráfego da web
 EXPOSE 80
-EXPOSE 443
+
+# Inicie o serviço do Nginx
+CMD ["nginx", "-g", "daemon off;"]
