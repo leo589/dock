@@ -19,8 +19,9 @@ RUN apt-get update && \
     docker-php-ext-configure gd --with-freetype --with-jpeg && \
     docker-php-ext-install -j$(nproc) gd mysqli pdo pdo_mysql zip
 
-# Copie o arquivo de configuração do Nginx
+# Copie o arquivo de configuração do Nginx e ajuste o usuário
 COPY nginx.conf /etc/nginx/nginx.conf
+RUN sed -i 's/user nginx;/user www-data;/g' /etc/nginx/nginx.conf
 
 # Copie os arquivos do seu aplicativo para o diretório de trabalho do Nginx
 COPY . /var/www/html
