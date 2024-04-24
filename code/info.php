@@ -1,1 +1,3 @@
-<?php phpinfo();
+<?php 
+echo 'Ola test';
+phpinfo();
