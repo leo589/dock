@@ -6,7 +6,7 @@ services:
     volumes:
       -./src/var/www/html
     ports:
-      -9000:80
+      -9000:8080
   mysql_db:
     image: mysql:latest
     command: --default-authentication-plugin=mysql_native_password
@@ -18,6 +18,6 @@ services:
     image: phpmyadmin:latest
     restart: always
     ports:
-      -9001:80
+      -9001:8080
     environment:
       - PMA_ARBITRARY=1
