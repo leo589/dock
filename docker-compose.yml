@@ -28,18 +28,14 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.php-apache.rule=Host(`localhost`, `lvh.me`, `pmamp.lvh.me`, `127.0.0.1`)"
       - "traefik.http.routers.php-apache.entrypoints=web"
+      - "traefik.http.services.php-apache.loadbalancer.server.port=80"
 
   mysql:
     image: "mysql:8.0.27"
-    # Uncomment line below if you are using a Mac with the M1 chip
-    #platform: linux/amd64
     depends_on:
       - "traefik"
     volumes:
-      #- "./mysql_seed.sql:/docker-entrypoint-initdb.d/mysql_seed.sql"
       - "./dbdata:/var/lib/mysql"
-    command: 
-      - "--default-authentication-plugin=mysql_native_password"
     environment:
       MYSQL_ROOT_PASSWORD: "rootPASS"
       MYSQL_DATABASE: "dbase"
@@ -52,16 +48,15 @@ services:
     image: "phpmyadmin/phpmyadmin"
     depends_on:
       - "mysql"
-    links:
-      - "mysql"
     environment:
       PMA_HOST: "mysql"
       PMA_PORT: "3306"
       UPLOAD_LIMIT: "256M"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.whoami.rule=Host(`pma.localhost`, `pma.lvh.me`)"
-      - "traefik.http.routers.whoami.entrypoints=web"
+      - "traefik.http.routers.phpmyadmin.rule=Host(`pma.localhost`, `pma.lvh.me`)"
+      - "traefik.http.routers.phpmyadmin.entrypoints=web"
+      - "traefik.http.services.phpmyadmin.loadbalancer.server.port=80"
 
 networks:
   default:
