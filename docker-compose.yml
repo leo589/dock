@@ -1,51 +1,25 @@
-version: "3.1"
+version: "3"
+
 services:
-    www:
-        build: .
-        ports: 
-            - "9000:80"
-        volumes:
-            - ./www:/var/www/html/
-        links:
-            - db
-        networks:
-            - frontend
-            - backend
-    db:
-        image: mysql:8.0
-        ports: 
-            - "3308:3308"
-        command: --default-authentication-plugin=mysql_native_password
-        environment:
-            MYSQL_DATABASE: dockerExample
-            MYSQL_USER: user
-            MYSQL_PASSWORD: test
-            MYSQL_ROOT_PASSWORD: test 
-        volumes:
-            - ./dump:/docker-entrypoint-initdb.d
-            - ./conf:/etc/mysql/conf.d
-            - persistent:/var/lib/mysql
-        networks:
-            - backend
-    phpmyadmin:
-        image: phpmyadmin/phpmyadmin
-        links: 
-            - db:db
-        ports:
-            - 9001:80
-        environment:
-            MYSQL_USER: user
-            MYSQL_PASSWORD: test
-            MYSQL_ROOT_PASSWORD: test 
-        networks:
-            - frontend
-            - backend
+  web:
+    image: webdevops/php-apache:alpine-php7
+    ports:
+      - "4500:80"
+    volumes:
+      - ./www:/app
 
-volumes:
-    persistent:
-
-networks:
-    frontend:
-        driver: bridge
-    backend:
-        driver: bridge
+  db:
+    image: mysql
+    command: ['--default-authentication-plugin=mysql_native_password','--character-set-server=utf8mb4', '--collation-server=utf8mb4_general_ci']
+    restart: always
+    environment:
+      MYSQL_DATABASE: devbuild
+      MYSQL_ROOT_PASSWORD: root
+        
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "8080:80"   
+  
