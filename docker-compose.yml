@@ -3,7 +3,7 @@ services:
   nginx:
     build: .
     ports:
-      - "8080:80" # Mapeia a porta 80 do contêiner para a porta 8080 do host
+      - "80:80" # Mapeia a porta 80 do contêiner Nginx para a porta 80 do host
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
       - ./html:/var/www/html
@@ -20,12 +20,12 @@ services:
   mysql:
     image: mysql:latest
     ports:
-      - "3306:3306" # Mapeia a porta 3306 do contêiner para a porta 3306 do host
+      - "3306:3306" # Mapeia a porta 3306 do contêiner MySQL para a porta 3306 do host
     environment:
-      MYSQL_ROOT_PASSWORD: your_mysql_password
-      MYSQL_DATABASE: your_database_name
-      MYSQL_USER: your_mysql_user
-      MYSQL_PASSWORD: your_mysql_password
+      MYSQL_ROOT_PASSWORD: my_secret_password
+      MYSQL_DATABASE: my_database
+      MYSQL_USER: my_user
+      MYSQL_PASSWORD: my_secret_password
     volumes:
       - mysql-data:/var/lib/mysql
 
