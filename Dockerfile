@@ -33,6 +33,8 @@ RUN docker-php-ext-configure soap --enable-soap
 
 RUN docker-php-ext-install gd intl  pdo_mysql pdo_pgsql mysqli zip pdo_dblib soap
 
+RUN pecl install imagick-3.4.3
+
 RUN docker-php-ext-enable imagick pdo_dblib
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
