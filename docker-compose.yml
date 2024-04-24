@@ -9,7 +9,8 @@ services:
         links:
             - db
         networks:
-            - default
+            - frontend
+            - backend
     db:
         image: mysql:8.0
         ports: 
@@ -25,8 +26,7 @@ services:
             - ./conf:/etc/mysql/conf.d
             - persistent:/var/lib/mysql
         networks:
-            - default
-            - default
+            - backend
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
         links: 
@@ -37,7 +37,15 @@ services:
             MYSQL_USER: user
             MYSQL_PASSWORD: test
             MYSQL_ROOT_PASSWORD: test 
+        networks:
+            - frontend
+            - backend
+
 volumes:
     persistent:
+
 networks:
-    frontend:   
+    frontend:
+        driver: bridge
+    backend:
+        driver: bridge
