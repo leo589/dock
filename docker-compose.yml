@@ -22,10 +22,10 @@ services:
     ports:
       - "3306:3306" # Mapeia a porta 3306 do contêiner MySQL para a porta 3306 do host
     environment:
-      MYSQL_ROOT_PASSWORD: my_secret_password
-      MYSQL_DATABASE: my_database
-      MYSQL_USER: my_user
-      MYSQL_PASSWORD: my_secret_password
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: my_db
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
     volumes:
       - mysql-data:/var/lib/mysql
 
