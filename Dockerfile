@@ -1,12 +1,4 @@
-# define a imagem base
-FROM debian:latest
-# define o mantenedor da imagem
-LABEL maintainer="Macoratti"
-# Atualiza a imagem com os pacotes
-RUN apt-get update && apt-get upgrade -y
-# Instala o NGINX para testar
-RUN apt-get install nginx -y
-# Expoe a porta 80
-EXPOSE 80
-# Comando para iniciar o NGINX no Container
-CMD ["nginx", "-g", "daemon off;"]
+FROM php:8.0-apache
+WORKDIR /var/www/html
+RUN apt-get update -y && apt-get install -y libmariadb-dev
+RUN docker-php-ext-install mysqli
