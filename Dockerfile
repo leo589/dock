@@ -1,23 +1,14 @@
-# Use a imagem base do PHP com FPM
-FROM php:fpm
+# Use a imagem oficial do PHP com suporte ao FPM
+FROM php:7.4-fpm
 
-# Instalação de pacotes adicionais
-RUN apt-get update && apt-get install -y nginx
+# Instale as extensões do PHP necessárias
+RUN docker-php-ext-install mysqli pdo pdo_mysql
 
-# Limpeza do cache do apt
-RUN apt-get clean
+# Copie o arquivo de configuração do PHP para o contêiner
+COPY php.ini /usr/local/etc/php/
 
-# Copia o arquivo de configuração do Nginx
-COPY nginx.conf /etc/nginx/nginx.conf
+# Defina o diretório de trabalho no contêiner
+WORKDIR /var/www
 
-# Configura o servidor web
-RUN echo "daemon off;" >> /etc/nginx/nginx.conf
-
-# Copia o código PHP para a pasta raiz do servidor web
-COPY www /var/www/html
-
-# Expõe a porta desejada para tráfego da web
-EXPOSE 80  # Ajuste esta porta conforme necessário
-
-# Inicia os serviços necessários
-CMD service nginx start && php-fpm
+# Exponha a porta 9000 para conexões do nginx
+EXPOSE 9000
