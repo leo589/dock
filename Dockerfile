@@ -19,3 +19,6 @@ COPY --from=db /etc/mysql /etc/mysql
 
 # Expose ports
 EXPOSE 80 3306
+
+# Command to start services
+CMD service nginx start && service mysql start && php-fpm
