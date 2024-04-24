@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y nginx php7.0-fpm curl git && apt-get cl
 # NGINX
 RUN ln -sf /dev/stdout /var/log/nginx/access.log
 RUN ln -sf /dev/stderr /var/log/nginx/error.log
-VOLUME ["/var/cache/nginx"]
+VOLUME ["/var/nginx"]
 RUN rm /etc/nginx/sites-available/default
 ADD ./default /etc/nginx/sites-available/default
 
