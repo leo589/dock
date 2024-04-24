@@ -1,4 +1,3 @@
-# Use a imagem oficial do PHP com Nginx
 FROM php:7.4-fpm
 
 # Instale as dependências necessárias
