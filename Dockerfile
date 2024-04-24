@@ -1,10 +1,12 @@
-# Use an official PHP runtime
-FROM php:8.2-apache
-# Enable Apache modules
-RUN a2enmod rewrite
-# Install any extensions you need
-RUN docker-php-ext-install mysqli pdo pdo_mysql
-# Set the working directory to /var/www/html
-WORKDIR /var/www/html
-# Copy the source code in /www into the container at /var/www/html
-COPY ../www .
+# define a imagem base
+FROM debian:latest
+# define o mantenedor da imagem
+LABEL maintainer="Macoratti"
+# Atualiza a imagem com os pacotes
+RUN apt-get update && apt-get upgrade -y
+# Instala o NGINX para testar
+RUN apt-get install nginx -y
+# Expoe a porta 80
+EXPOSE 80
+# Comando para iniciar o NGINX no Container
+CMD ["nginx", "-g", "daemon off;"]

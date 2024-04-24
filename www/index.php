@@ -1,3 +1,3 @@
 <?php
-echo "Testing a PHP Apache Docker Container";
-?>
+echo 'estou vivo';
+echo phpinfo();
