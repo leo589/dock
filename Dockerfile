@@ -1,24 +1,12 @@
-# Dockerfile
-
-# Stage 1: Build stage for the web service (nginx)
-FROM nginx:latest AS web
-COPY ./site.conf /etc/nginx/conf.d/site.conf
-
-# Stage 2: Build stage for the php service
-FROM php:7.3-fpm AS php
-
-# Stage 3: Build stage for the db service (mysql)
-FROM mysql:5.7 AS db
-RUN echo "--default-authentication-plugin=mysql_native_password" > /etc/mysql/conf.d/docker.cnf
-
-# Stage 4: Final stage, copying configurations and built artifacts
-FROM nginx:latest
-COPY --from=web /etc/nginx/conf.d/site.conf /etc/nginx/conf.d/site.conf
-COPY --from=php /usr/local/etc/php /usr/local/etc/php
-COPY --from=db /etc/mysql /etc/mysql
-
-# Expose ports
-EXPOSE 80 3306
-
-# Command to start services
-CMD service nginx start && service mysql start && php-fpm
+# define a imagem base
+FROM debian:latest
+# define o mantenedor da imagem
+LABEL maintainer="Macoratti"
+# Atualiza a imagem com os pacotes
+RUN apt-get update && apt-get upgrade -y
+# Instala o NGINX para testar
+RUN apt-get install nginx -y
+# Expoe a porta 80
+EXPOSE 80
+# Comando para iniciar o NGINX no Container
+CMD ["nginx", "-g", "daemon off;"]
