@@ -1,8 +1,8 @@
-# Use a imagem base do webdevops com PHP e Apache
-FROM webdevops/php-apache:alpine-php7
+FROM php:7.3-apache
 
-# Copie o conteúdo do diretório local ./www para o diretório /app no contêiner
-COPY ./www /app
+RUN apt -y update \
+  && apt install -y \
+  mariadb-client
 
-# Exponha a porta 80 para acesso externo
-EXPOSE 80
+# pdo_mysql package
+RUN docker-php-ext-install pdo_mysql
