@@ -8,17 +8,7 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
-FROM node:14
-
-WORKDIR /app/server
-
-COPY server/package*.json ./
-RUN npm ci
-
-COPY server/ .
-
-ENV NODE_ENV production
-ENV PORT 8000
-EXPOSE 8000
-
-CMD ["npm", "start"]
+FROM nginx:alpine
+COPY --from=0 /app/dist /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
