@@ -1,1 +1,0 @@
-<div>frequencia desktop</div>

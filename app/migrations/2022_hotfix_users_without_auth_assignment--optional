@@ -1,3 +1,0 @@
-insert into auth_assignment (itemname, userid, bizrule, data)
-select 'manager', u.id, null, 'N;' from users u where
-not exists (select * from auth_assignment where userid = u.id);

@@ -1,2 +1,0 @@
-ALTER TABLE `curricular_matrix`
-ADD `school_year` int(11) NOT NULL;

@@ -1,1 +1,0 @@
-ALTER TABLE food_menu ADD adjusted BOOL DEFAULT 0 NULL;

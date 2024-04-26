@@ -1,5 +1,0 @@
-INSERT INTO `lunch_unity` (`name`, `acronym`)
-VALUES ('Mililitro', 'mL');
-
-INSERT INTO `lunch_unity` (`name`, `acronym`)
-VALUES ('Quilo', 'Kg');
