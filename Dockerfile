@@ -1,4 +1,4 @@
-FROM nginx:stable-alpine
-COPY . /usr/share/nginx/html
+FROM php:7.4-apache
+COPY . /var/www/html/
+RUN chown -R www-data:www-data /var/www/html && a2enmod rewrite
 EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
