@@ -1,0 +1,16 @@
+.t-filter-bar {
+    display: flex;
+    flex-direction: column;
+    column-gap: $SizeSmall;
+    @include device(tablet) {
+        flex-direction: row;
+     }
+    .t-filters {
+        display: flex;
+        margin-bottom: $SizeSmall;
+        @include device(tablet) {
+           margin-bottom: 0;
+           display: flex;
+        }
+    }
+}

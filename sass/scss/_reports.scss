@@ -1,0 +1,11 @@
+@import '_tokens.scss';
+
+.reports {
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.t-reports_icons{
+    font-size: $FontSizeIconsTitle2;
+    color:$colorsBaseProductNormal;
+}

@@ -1,0 +1,171 @@
+.align-items {
+    $alignments: center, start, stretch, baseline, end;
+    @each $align in $alignments {
+        &--#{$align} {
+            display: flex;
+            align-items: $align;
+        }
+    }
+
+    &--center-on-desktop {
+        @include device (tablet) {
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+
+.justify-content {
+    $alignments: center, start, end, space-between, end, space-around;
+    @each $align in $alignments {
+        &--#{$align} {
+            display: flex;
+            justify-content: $align;
+        }
+    }
+}
+
+.align-self {
+    $alignments: center, start, baseline, end;
+    @each $align in $alignments {
+        &--#{$align} {
+            align-self: $align;
+        }
+    }
+
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.text-color {
+    &--red {
+        color: $colorsTextError;
+    }
+
+    &--green {
+        color: $colorsTextSuccess;
+    }
+
+    &--white {
+        color: $colorsBaseCloudLight;
+    }
+
+    &--ink {
+        color: $colorsBaseInkLight;
+    }
+}
+
+.text-bold {
+    font-weight: $fontWeightBold;
+}
+
+.flex-direction {
+    $directions: row, column, row-reverse, column-reverse;
+
+    @each $dir in $directions {
+        &--#{$dir} {
+            flex-direction: $dir;
+        }
+    }
+}
+
+.text-align {
+    $variations: center, left, right, justify;
+
+    @each $v in $variations {
+        &--#{$v} {
+            text-align: $v;
+        }
+    }
+}
+
+/**
+    Generate default space helpers
+
+    Ex: .t-padding-small, .t-padding-small--left, .t-padding-small--right...
+    Ex: .t-padding-large, .t-padding-large--left, .t-padding-large--right...
+    Ex: .t-margin-large, .t-margin-large--left, .t-margin-large--right...
+*/
+$sizes: (small: $SizeSmall, medium: $SizeMedium, large: $SizeLarge, none: 0);
+
+@each $name,
+$size in $sizes {
+    .t-padding-#{$name} {
+        @include spacings(padding, $size);
+    }
+
+    .t-margin-#{$name} {
+        @include spacings(margin, $size);
+    }
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+
+    &--mobile {
+        display: flex;
+
+        @include device(mobile) {
+            display: none;
+        }
+    }
+
+    &--tablet {
+        display: flex;
+
+        @include device(tablet) {
+            display: none;
+        }
+    }
+
+    &--tabletDesktop {
+        display: none;
+
+        @include device(mobile) {
+            display: flex;
+        }
+    }
+
+    &--desktop {
+        display: none;
+
+        @include device(tablet) {
+            display: flex;
+        }
+    }
+
+}
+
+.full {
+    width: 100%;
+    height: 100%;
+
+    &--width {
+        width: 100%;
+    }
+
+    &--height {
+        height: 100%;
+    }
+}
+
+.border-none {
+    border: none;
+    outline: none;
+}
+
+.sticky {
+    position: -webkit-sticky;
+    position: sticky !important;
+    top: 0;
+    padding: 5px;
+    background-color: #fff;
+    z-index: 1;
+}
+

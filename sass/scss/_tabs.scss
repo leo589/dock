@@ -1,0 +1,150 @@
+@import '_tokens.scss';
+@import '_functions.scss';
+
+.t-tabs {
+    
+    display: flex;
+    list-style: none;
+    margin: $spaceEmpty;
+    padding: $spaceEmpty;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    
+
+    @include device(tablet) {
+    
+        padding: $spaceSmall $spaceMedium $spaceSmall $spaceEmpty;
+        margin: $spaceEmpty $spaceMedium $spaceEmpty $spaceEmpty;
+        overflow-x: hidden;
+    }
+    @include device(desktop) {
+        padding: $spaceXXSmall $spaceXXSmall $spaceXXSmall $spaceEmpty;
+        margin: $spaceEmpty $spaceMedium $spaceEmpty $spaceEmpty;
+        overflow-x: hidden;
+    }
+
+    .t-tabs__list {
+        display: flex;
+        list-style: none;
+        padding: $spaceEmpty;
+        margin: $spaceEmpty ;
+        
+        .t-tabs__item {
+            display: inline-flex;
+            white-space: nowrap;
+            padding: $spaceEmpty;
+            margin: $spaceEmpty;
+            text-align: center;
+            
+
+            &.active {
+                font-weight: $fontWeightBold;
+                text-decoration: none;
+                .t-tabs__link {
+                    display: flex;
+                    align-items: center;
+                    color: $colorsBaseProductNormalHover;
+                    .t-tabs__numeration {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin-right: $SizeXSmall;
+                        width: $SizeLarge;
+                        height: $SizeLarge;
+                        border-radius: 100%;
+                        background-color: $colorsBaseProductNormalHover;
+                        color: $colorsBaseWhiteNormal;
+                    }
+                }
+            }
+
+            a {
+                text-decoration: none;
+            }
+            
+            .t-tabs__link {
+                font-size: $FontSizeTextNormal;
+                height: auto;
+                color: $colorsBaseInkLightHover;
+                padding: $spaceNormal;
+                display: flex;
+                align-items: center;
+
+                &.first {
+                    padding: $spaceNormal $spaceNormal $spaceNormal $spaceEmpty;
+                }
+
+                @include device(tablet) {
+                    padding: $spaceXXXSmall $spaceMedium $spaceXXXSmall $spaceMedium;
+                    &.first {
+                        padding: $spaceXXXSmall $spaceMedium $spaceXXXSmall $spaceEmpty;
+                    }
+            
+                }
+                @include device(desktop) {
+                    padding: $spaceXXSmall $spaceMedium $spaceXXSmall $spaceMedium;
+                    &.first {
+                        padding: $spaceXXSmall $spaceMedium $spaceXXSmall $spaceEmpty;
+                    }
+                    
+                }
+                .t-tabs__numeration {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-right: $SizeXSmall;
+                    width: $SizeLarge;
+                    height: $SizeLarge;
+                    border-radius: 100%;
+                    background-color: $colorsBaseCloudLightActive;
+                    color: $colorsBaseInkLight;
+                }
+            }
+
+           
+        }
+    }
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.t-tabs-secondary {
+    .t-tabs__list{
+        display: flex;
+        list-style: none;
+        text-align: center;
+        padding: $spaceEmpty;
+        margin-left: $spaceEmpty;
+        overflow-x: scroll;
+        &::-webkit-scrollbar {
+            display: none;
+          }
+        .t-tabs__item {
+            padding: $SizeXSmall;
+            font-weight: $fontWeightRegular;
+            white-space: nowrap;
+           font-size: $FontSizeTextNormal;
+            cursor: pointer;
+            @include device(mobile) {
+                font-size: $FontSizeTextNormal; 
+            }
+            .text-primary {
+                color: $colorsBaseInkNormal;
+            }
+            
+            .text-secondary {
+                color: $colorsBaseInkLight;
+            }
+            &.active {
+                border-bottom: $borderWidthInputFocus #222C64  solid;
+                font-weight: $fontWeightSemiBold;
+            }
+        }
+        
+    }    
+    
+}

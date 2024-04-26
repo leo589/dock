@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+@import '_functions.scss';
+*,
+body,
+html {
+    font-family: 'inter', sans-serif;
+}
+
+.main {
+    padding: $spaceSmall;
+    @include device(mobile) {
+        padding: $spaceLarge;
+    }
+    
+    // padding: $spaceLarge $spaceLarge $spaceLarge $spaceXSmall;
+}
+a {
+    color: inherit;
+}
+a:hover {
+    text-decoration: none;
+}
+
+hr {
+    margin: 0;
+    border: none;
+}
+select[multiple]  {
+    height: 30px;
+}
+input[type="number"] {
+    margin: 0px ;
+}
+select,
+select[multiple],
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"] {
+    min-height: 30px;
+}

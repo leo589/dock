@@ -1,0 +1,629 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+
+/*
+    botões
+*/
+.tag-button-light,
+.tag-button-light:hover {
+    background-color: #EFF2F5;
+    color: #1d1d1b;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 4px;
+    margin-right: 10px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.tag-button-light:hover {
+    background-color: #e6e6e6;
+}
+
+.medium-button {
+    width: 163px;
+    height: 44px;
+    font-size: 14px;
+    padding: 10px 12px;
+}
+
+.small-button {
+    width: 124px;
+    height: 32px;
+    display: flex;
+    border: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.small-button.wide-button {
+    width: auto;
+}
+
+.tag-button.next {
+    float: none;
+}
+
+.tag-buttons-container.buttons {
+    width: auto;
+    height: 32px;
+    display: flex;
+    justify-content: space-between;
+    top: 67px;
+    ;
+    padding-left: 10px;
+}
+
+/*
+    listagens
+*/
+.tag-table td {
+    background: #EAEDFC;
+}
+
+table.dataTable {
+    border-collapse: initial !important;
+    border-spacing: 0 5px !important;
+}
+
+.tag-table.table-striped tbody>tr:nth-child(odd)>td {
+    background-color: #eaeaf8;
+}
+
+.grid-view .filters input {
+    border: 1px solid #ccc;
+    margin: 0px 0px 2px 12px;
+}
+
+.student-table.tag-table thead tr.filters input,
+.curricularmatrix-table.tag-table thead tr.filters input {
+    width: 260px;
+}
+
+/*
+    paginação
+*/
+.widget ul.yiiPager .selected a,
+.widget ul.yiiPager a:link {
+    color: #3F45EA;
+    border-color: #3F45EA;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    text-align: center;
+}
+
+.widget ul.yiiPager .selected a {
+    background: #222C64;
+    color: #ccc;
+}
+
+.widget ul.yiiPager .next a:link,
+.widget ul.yiiPager .previous a:link {
+    width: auto;
+    border-radius: 10px;
+    margin-left: 5px;
+    padding: 0 5px;
+}
+
+.tag-inner {
+    border-radius: 4px;
+}
+
+.form-content {
+    padding-right: 0;
+}
+
+@media (min-width: 768px) {
+    .form-content {
+        padding-right: 20% !important;
+    }
+}
+
+/*
+    login
+*/
+.tag-form-login {
+    max-width: 332px;
+    background-color: #272B96;
+}
+
+/*
+ Matricula em grupo
+*/
+.select-search-on,
+.select-search-on ul.select2-choices {
+    border-radius: 4px;
+    width: 426px;
+    padding: 0;
+}
+
+.school-schedules input[type="time"],
+.test-dates input[type=date] {
+    width: 413px;
+    height: 30px;
+    padding: 0 6px;
+}
+
+/*
+    inputs
+*/
+.small-input {
+    width: 120px;
+}
+
+.control-input.input2 {
+    height: 30px;
+}
+
+/*
+    selects
+*/
+.select2-drop.select2-display-none.select2-drop-active {
+    margin-top: -1px;
+}
+
+
+
+/*
+    home-page
+*/
+.home-page-table-header {
+    background-color: #222C64;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+    border-radius: 4px;
+
+}
+
+.home-page-table-item {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+    border-radius: 4px;
+    padding: 8px 16px 8px 16px;
+}
+
+.home-page-table-item img {
+    height: 24px;
+    width: 24px;
+    padding: 5px;
+    margin-right: 13px;
+    border-radius: 100%;
+}
+
+.home-page-table-item.gray {
+    background-color: #eaeaf8;
+}
+
+.home-page-table-item.blue {
+    background-color: #eaeaf8;
+}
+
+.home-page-table-button.load-more {
+    font-family: 'Inter', sans-serif;
+    background-color: #222C64 !important;
+}
+
+.home-page-table-button.load-more:hover {
+    box-shadow: none;
+}
+
+/*
+    fullmenu-toggle-button
+*/
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-left: 20px;
+    margin-top: 23px;
+    margin-bottom: 65px;
+}
+
+
+@media (max-width: 992px) {
+    .voltar-tobnav {
+        display: none;
+    }
+}
+
+.ui-widget-overlay {
+    background: black !important;
+}
+
+.control-label.required {
+    width: 352px;
+    text-align: left;
+}
+
+.control-label.required.small-label {
+    width: auto;
+    text-align: left;
+}
+
+.control-label.required.indicator::after {
+    content: ' *';
+}
+
+.element::-webkit-scrollbar {
+    width: 0 ! important
+}
+
+.electronic-diary-label {
+    width: auto !important;
+}
+
+.select2-container.select-search-on.electronic-diary-input {
+    width: 160px !important;
+}
+
+.select2-container.select-search-on.electronic-diary-input .select2-choice {
+    width: 150px !important;
+}
+
+.electronic-diary.date-container input[type="text"] {
+    width: 150px;
+    margin-right: 10px;
+}
+
+.electronic-diary.date-container input[type="text"] {
+    width: 150px;
+    margin-right: 10px;
+}
+
+.select2-container.select-search-on.control-input.frequency-input,
+.select2-container.select-search-on.control-input.classContents-input {
+    width: 170px !important;
+}
+
+.select2-container.select-search-on.control-input.frequency-input .select2-choice,
+.select2-container.select-search-on.control-input.classContents-input .select2-choice {
+    width: 160px !important;
+
+}
+
+.select2-container.select-search-on.control-input.frequency-input-curricular-component .select2-choice,
+.select2-container.select-search-on.control-input.classContents-input-curricular-component .select2-choice {
+    width: 97.8% !important;
+
+}
+
+.control-group.aluno {
+    margin-left: 32px;
+}
+
+table.dataTable.lunch-table {
+    margin-top: 30px;
+}
+
+.widget .widget-body {
+    padding: 0px;
+}
+
+
+table.dataTable.no-footer {
+    border-bottom: none !important;
+}
+
+.emblema {
+    margin: 0px 0px 0px 10px;
+}
+
+.selecao_dias {
+    margin: 0px 0px 0px -25px
+}
+
+.selecao_dias-checkbox {
+    text-align: center
+}
+
+
+
+.table-primary tbody tr.odd:hover td,
+.table-primary tbody tr.even:hover td {
+    background: #d5dded;
+}
+
+.grades_inputs,
+.grades_inputs .select2-choice {
+    width: 134px !important;
+}
+
+.grades_inputs.select2-container {
+    width: 144px !important;
+}
+
+
+.grades_title_padding {
+    padding: 0px 8px 0px 8px !important;
+}
+
+.title_table_notes {
+    background-color: #E8EDF1;
+    color: #5F738C;
+}
+
+.table-striped.table-grades tbody>tr:nth-child(odd)>td {
+    background-color: #ffffff;
+}
+
+
+
+@font-face {
+    font-family: 'icone-tag';
+    src: url('/themes/default/fonts/IconsTag_V20.ttf');
+}
+
+.icones {
+    font-family: "icone-tag", sans-serif;
+}
+
+.t-button-primary {
+    border: none;
+}
+
+.grades-buttons{
+	align-items: end;
+	justify-content: end;
+	width: 300px;
+}
+
+
+.main .grades-buttons,
+.js-new-unity,
+.formulas {
+    display: none;
+}
+
+.main .js-grades-structure-loading {
+    display: none;
+    vertical-align: middle;
+    font-size: 18px;
+    margin-top: 1px;
+}
+
+.unity .remove-button {
+	font-size: 20px;
+	align-self: center;
+	cursor: pointer;
+}
+
+.unity h3 {
+	color: #3f45ea;
+}
+
+.save-unity-loading-gif {
+    position: absolute;
+    left: calc(50% - 20px);
+    top: 50%;
+    width: 42px;
+    display: none;
+    z-index: 1;
+}
+
+.stagename,
+.stagemodalityname {
+    font-weight: bold;
+}
+
+li[discipline]:hover {
+    background-color: lightblue !important;
+}
+
+li[instructor]:hover {
+    background-color: lightblue !important;
+}
+
+.checkbox {
+    pointer-events: none;
+}
+
+.checkbox>input[type="checkbox"] {
+    pointer-events: auto;
+}
+
+
+.grid-view .dataTables_paginate {
+    display: flex !important;
+}
+
+.grid-view .dataTables_paginate .previous {
+    background-image: url('../img/chevron-left.svg') !important;
+    background-repeat: no-repeat !important;
+    background-position-y: center !important;
+}
+
+.grid-view .dataTables_paginate .next {
+    background-image: url('../img/chevron-right.svg') !important;
+    background-repeat: no-repeat !important;
+    background-position-y: center !important;
+}
+
+.grid-view .dataTables_paginate .previous:active {
+    box-shadow: none !important;
+}
+
+.grid-view .dataTables_paginate .next:active {
+    box-shadow: none !important;
+}
+
+.grid-view .dataTables_paginate a {
+    border: 1px solid white !important;
+}
+
+.grid-view .dataTables_paginate span .paginate_button {
+    height: 24px !important;
+    width: 24px !important;
+    border-radius: 50% !important;
+    padding: 10px !important;
+    margin: 5px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    background-color: transparent;
+    color: #252A31;
+}
+
+.grid-view .dataTables_paginate span .paginate_button:hover:not(.current) {
+    background: #F5F7F9 !important;
+    color: #252A31 !important;
+}
+
+
+
+.grid-view .current {
+    background-color: #3F45EA !important;
+    color: #fff !important;
+}
+
+.grid-view .dataTables_paginate span {
+    display: flex !important;
+}
+
+.innerLR {
+    padding: 48px 10px 0;
+
+}
+
+.grid-view table tr td {
+    box-shadow: none !important;
+    border-top: none !important;
+}
+
+.modal-content {
+    width: 624px;
+    height: auto;
+    box-sizing: border-box;
+    background: #FFFFFF;
+    border: 1px solid #F7F7F8;
+    box-shadow: 0px 0px 12px rgba(196, 196, 196, 0.5);
+    border-radius: 3px;
+}
+
+.modal-content .modal-header,
+.modal-content .modal-body {
+    background: none !important;
+    padding: 15px 30px !important;
+}
+
+.modal-content .modal-header h4 {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: #252A31;
+}
+
+.modal-content label {
+    margin-left: 5px;
+    width: 334px;
+    height: 20px;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #252A31;
+}
+
+.modal-content .modal-footer {
+    background: none !important;
+    display: flex;
+    flex-direction: row;
+    padding: 0px;
+    border: none;
+    margin: 20px 0;
+}
+
+.modal-content select {
+    height: 44px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('../img/Suffix.svg');
+    background-repeat: no-repeat;
+    background-position: 97% 55%;
+    padding-left: 15px;
+}
+
+.modal-content select option {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.modal-content .modal-footer button {
+    width: 280px;
+    height: 44px;
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    text-shadow: none !important;
+    border: none !important;
+}
+
+.button-icon-close {
+    display: flex;
+    margin: 7px -4px 0px 0px;
+}
+
+.div-input-structure-units {
+    margin-right: 14px;
+}
+
+.label-input-structure-units {
+    margin-right: 10px;
+}
+
+
+.widget>.widget-head {
+    background: #ffffff;
+
+}
+
+#menu-integrations ul {
+    width: 100%;
+}
+
+.widthfull {
+    width: 100% !important;
+}
+
+
+.dataTables_length {
+    margin: 10px;
+}
+
+.dataTables_length label {
+    display: flex;
+    align-content: center;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.dataTables_length select {
+    max-width: 50px;
+}
+
+.container-frequency-over {
+    overflow-y: auto;
+    height: 400px;
+}
+
+.container-frequency-over::-webkit-scrollbar {
+    display: none;
+}
+

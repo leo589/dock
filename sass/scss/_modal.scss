@@ -1,0 +1,51 @@
+.t-modal-container {
+    color: $colorsTextPrimary;
+    box-sizing: border-box;
+    height: auto;
+    max-height: 80vh;
+    background: $colorsBaseWhiteNormal;
+    border-radius: $borderRadiusNormal;
+    overflow-y: scroll;
+
+    &.larger {
+        min-width: 70vw;
+        right: 15vw;
+        left: 15vw;
+        margin: auto;
+    }
+    .t-modal__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: $SizeLarge $SizeLarge;
+        .t-title {
+            font-size: $FontSizeHeadingTitle2;
+            color: $colorsTextPrimary;
+            font-weight: $fontWeightHeadingDisplay;
+            margin: 0;
+        }
+        .close {
+            opacity: 1;
+            font-size: $SizeNormal;
+        }
+    }
+    .t-modal__body {
+        padding: $SizeNormal $SizeLarge;
+    }
+    .t-modal__footer {
+        a, button {
+            flex: 1;
+            padding: $spaceNormal;
+
+        }
+    }
+    &.height {
+        &--is-four-fifths {
+            height: 80vh;
+        }
+        &--is-three-fifths {
+            height: 60vh;
+        }
+    }
+}
+
